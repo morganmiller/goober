@@ -34,6 +34,10 @@ private
                                  :email,
                                  :phone_number,
                                  :password,
-                                 :password_confirmation)
+                                 :password_confirmation,
+                                 :car_make,
+                                 :car_model,
+                                 :car_capacity,
+                                 :role)
   end
 end

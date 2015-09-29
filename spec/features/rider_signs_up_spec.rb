@@ -17,8 +17,8 @@ feature 'Unauthenticated user' do
 
     expect(current_path).to eq(root_path)
     expect(page).to have_content "Welcome, Horace Williams"
-    # expect(page).to have_content "Rider Dashboard"
-    # expect(page).to_not have_content "Driver Dashboard"
+    expect(page).to have_content "Rider Dashboard"
+    expect(page).to_not have_content "Driver Dashboard"
   end
 
   scenario "can't sign up with invalid credentials" do

@@ -23,5 +23,6 @@
   <%= f.label :car_capacity %>
   <%= f.text_field :car_capacity,  :placeholder => "car capacity(as a number)"%><br>
 
+  <%= f.hidden_field :role, value: "driver" %>
   <p class= "center"><%= f.submit "Register", class:"button" %></p>
 <% end %>

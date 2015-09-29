@@ -21,7 +21,7 @@ feature 'Unauthenticated user' do
     # expect(page).to_not have_content "Driver Dashboard"
   end
 
-  xscenario "can't sign up with invalid credentials" do
+  scenario "can't sign up with invalid credentials" do
     visit root_path
     expect(current_path).to eq('/signup')
     click_on "Rider"
@@ -35,7 +35,7 @@ feature 'Unauthenticated user' do
     click_button "Register"
 
     expect(current_path).to eq('/signup/rider')
-    expect(page).to have_content "Invalid Email"
-    expect(page).to have_content "Invalid Phone Number"
+    expect(page).to have_content "Email is invalid"
+    expect(page).to have_content "Phone number is too short (minimum is 10 characters)"
   end
 end

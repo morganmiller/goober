@@ -14,5 +14,14 @@
   <%= f.label :password_confirmation %>
   <%= f.password_field :password_confirmation,  :placeholder => "confirm password"%><br>
 
+  <%= f.label :car_make %>
+  <%= f.text_field :car_make,  :placeholder => "car make"%><br>
+
+  <%= f.label :car_model %>
+  <%= f.text_field :car_model,  :placeholder => "car model"%><br>
+
+  <%= f.label :car_capacity %>
+  <%= f.text_field :car_capacity,  :placeholder => "car capacity(as a number)"%><br>
+
   <p class= "center"><%= f.submit "Register", class:"button" %></p>
 <% end %>

@@ -1,3 +1,7 @@
 Welcome, <%= current_user.name %>
 
-<%= current_user.role.capitalize %> Dashboard
+<% if current_user.rider? %>
+  <%= render 'users/rider_dashboard' %>
+<% else %>
+  <%= render 'users/driver_dashboard' %>
+<% end %>

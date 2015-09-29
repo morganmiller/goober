@@ -15,4 +15,12 @@ class User < ActiveRecord::Base
   validates_presence_of :car_make, if: ->(user) { user.role == 'driver' }
   validates_presence_of :car_model, if: ->(user) { user.role == 'driver' }
   validates_presence_of :car_capacity, if: ->(user) { user.role == 'driver' }
+
+  def rider?
+    self.role == "rider"
+  end
+
+  def driver?
+    self.role == "driver"
+  end
 end

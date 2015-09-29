@@ -1,18 +1,31 @@
-<%= form_for(User.new) do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name,  :placeholder => "name"%><br>
+<div class="col-md-4 col-md-offset-4">
+  <h1>Rider Signup</h1>
+  <%= form_for(User.new) do |f| %>
+    <div class="form-group">
+      <%= f.label :name %>
+      <%= f.text_field :name,  :placeholder => "name", class: "form-control"%>
+    </div>
 
-  <%= f.label :email %>
-  <%= f.text_field :email,  :placeholder => "email"%><br>
+    <div class="form-group">
+      <%= f.label :email %>
+      <%= f.text_field :email,  :placeholder => "email", class: "form-control"%>
+    </div>
 
-  <%= f.label :phone_number %>
-  <%= f.text_field :phone_number,  :placeholder => "phone"%><br>
+    <div class="form-group">
+      <%= f.label :phone_number %>
+      <%= f.text_field :phone_number,  :placeholder => "phone", class: "form-control"%>
+    </div>
 
-  <%= f.label :password %>
-  <%= f.password_field :password,  :placeholder => "password"%><br>
+    <div class="form-group">
+      <%= f.label :password %>
+      <%= f.password_field :password,  :placeholder => "password", class: "form-control"%>
+    </div>
 
-  <%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation,  :placeholder => "confirm password"%><br>
+    <div class="form-group">
+      <%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation,  :placeholder => "confirm password", class: "form-control"%>
+    </div>
 
-  <p class= "center"><%= f.submit "Register", class:"button" %></p>
-<% end %>
+    <p class= "center"><%= f.submit "Register", class:"button" %></p>
+  <% end %>
+</div>

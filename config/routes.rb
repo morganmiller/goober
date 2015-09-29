@@ -5,8 +5,7 @@ Rails.application.routes.draw do
   get '/signup' => 'users#new'
   get '/signup/rider' => 'users#rider_signup'
   get '/signup/driver' => 'users#driver_signup'
-  post '/signup/rider' => 'users#create_rider'
-  post '/signup/driver' => 'users#create_driver'
+  resources :users, only: [:create]
 
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'

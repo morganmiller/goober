@@ -1,0 +1,18 @@
+<%= form_for(User.new) do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name,  :placeholder => "email"%><br>
+
+  <%= f.label :email %>
+  <%= f.text_field :email,  :placeholder => "email"%><br>
+
+  <%= f.label :phone_number %>
+  <%= f.text_field :phone_number,  :placeholder => "email"%><br>
+
+  <%= f.label :password %>
+  <%= f.password_field :password,  :placeholder => "password"%><br>
+
+  <%= f.label :password_confirmation %>
+  <%= f.password_field :password_confirmation,  :placeholder => "confirm password"%><br>
+
+  <p class= "center"><%= f.submit "Register", class:"button" %></p>
+<% end %>

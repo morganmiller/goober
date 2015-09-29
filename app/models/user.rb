@@ -10,5 +10,5 @@ class User < ActiveRecord::Base
                               length: { minimum: 10, maximum: 10 }
   validates :password_digest, presence: true
 
-  
+  # validates :email, format: { with: /\A([^@\s]+)@(company|work)\.com\z/i }, if: ->(user) { user.role == 'sale' }
 end

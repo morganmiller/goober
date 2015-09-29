@@ -10,14 +10,15 @@ feature 'Unauthenticated user' do
 
     fill_in "Name", with: "Horace Williams"
     fill_in "Email", with: "horace@turing.io"
-    fill_in "Phone Number", with: "5555555555"
+    fill_in "Phone number", with: "5555555555"
     fill_in "Password", with: "password"
-    fill_in "Password Confirmation", with: "password"
+    fill_in "Password confirmation", with: "password"
     click_button "Register"
 
     expect(current_path).to eq(root_path)
-    expect(page).to have_content "Rider Dashboard"
-    expect(page).to_not have_content "Driver Dashboard"
+    expect(page).to have_content "Welcome, Horace Williams"
+    # expect(page).to have_content "Rider Dashboard"
+    # expect(page).to_not have_content "Driver Dashboard"
   end
 
   xscenario "can't sign up with invalid credentials" do
@@ -28,9 +29,9 @@ feature 'Unauthenticated user' do
 
     fill_in "Name", with: "Horace Williams"
     fill_in "Email", with: "horace"
-    fill_in "Phone Number", with: "555555"
+    fill_in "Phone number", with: "555555"
     fill_in "Password", with: "password"
-    fill_in "Password Confirmation", with: "password"
+    fill_in "Password confirmation", with: "password"
     click_button "Register"
 
     expect(current_path).to eq('/signup/rider')

@@ -1,8 +1,12 @@
-Pickup: <%= ride.pickup_address %><br>
-Dropoff: <%= ride.dropoff_address %><br>
-Passengers: <%= ride.num_passengers %><br>
-Status: <%= ride.status.capitalize %>
+<div class="active-ride">
+  Pickup: <%= ride.pickup_address %><br>
+  Dropoff: <%= ride.dropoff_address %><br>
+  Passengers: <%= ride.num_passengers %><br>
+  Status: <%= ride.status.capitalize %>
+  <%= react_component('RideStatus', initialRide: ride, initialTime: ride.send_most_recent_time) %>
 
-<% if current_user.driver? %>
-  <%= button_to ride.status_change_button, ride_path(ride), method: "put" %>
-<% end %>
+
+  <% if current_user.driver? %>
+    <%= button_to ride.status_change_button, ride_path(ride), method: "put" %>
+  <% end %>
+</div>

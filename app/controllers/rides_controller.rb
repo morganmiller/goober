@@ -24,6 +24,12 @@ class RidesController < ApplicationController
       redirect_to(:back)
     end
   end
+
+  def show
+    ride = Ride.find(params[:id])
+    render status: 200,
+           json: { ride: ride.as_json, time: ride.send_most_recent_time }.as_json
+  end
 private
 
   def ride_params

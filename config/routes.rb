@@ -11,5 +11,5 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
 
-  resources :rides, only: [:new, :create, :update]
+  resources :rides, only: [:new, :create, :update, :show]
 end

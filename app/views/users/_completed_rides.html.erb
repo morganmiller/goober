@@ -16,10 +16,10 @@
       <td><%= ride.driver.name %></td>
       <td><%= ride.pickup_address %></td>
       <td><%= ride.dropoff_address %></td>
-      <td><%= time_tag ride.created_at, :format => '%B %d, %Y %l:%M %p' %></td>
-      <td><%= time_tag ride.accepted_time, :format => '%B %d, %Y %l:%M %p' %></td>
-      <td><%= time_tag ride.pickup_time, :format => '%B %d, %Y %l:%M %p' %></td>
-      <td><%= time_tag ride.dropoff_time, :format => '%B %d, %Y %l:%M %p' %></td>
+      <td><%= ride.created_at %></td>
+      <td><%= ride.accepted_time %></td>
+      <td><%= ride.pickup_time %></td>
+      <td><%= ride.dropoff_time %></td>
       <td><%= number_to_currency ride.cost %></td>
     </tr>
   <% end %>

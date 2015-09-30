@@ -10,6 +10,8 @@
       <%= render partial: 'rides/driver_info', locals: {ride: current_user.current_ride} %>
     <% end %>
   <% else %>
-    <%= link_to "Request a Ride", new_ride_path %>
+    <div class="centered">
+      <%= button_to "Request a Ride", new_ride_path, method: "get", class: "btn btn-lg btn-success" %>
+    </div>
   <% end %>
 </div>

@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   has_secure_password
-  has_many :rides
+  has_many :user_rides
+  has_many :rides, through: :user_rides
 
   enum role: %w(rider driver)
 
@@ -27,15 +28,13 @@ class User < ActiveRecord::Base
   end
 
   #shared rider/driver methods
-
+  def current_ride
+    self.rides.where(status: [0,1,2]).first
+  end
 
   #rider methods
   def has_active_rides?
     !self.current_ride.nil?
-  end
-
-  def current_ride
-    self.rides.where(status: [0,1,2]).first
   end
 
   #driver methods
@@ -46,9 +45,4 @@ class User < ActiveRecord::Base
   def available_requests
     Ride.active_requests.where(num_passengers: (1..self.car_capacity).to_a)
   end
-
-  def current_fare
-    Ride.with_driver(self.id).first
-  end
-
 end

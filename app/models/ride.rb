@@ -1,5 +1,6 @@
 class Ride < ActiveRecord::Base
-  belongs_to :user
+  has_many :user_rides
+  has_many :users, through: :user_rides
 
   enum status: ["active", "accepted", "in transit", "completed"]
 
@@ -11,9 +12,5 @@ class Ride < ActiveRecord::Base
 
   def has_driver?
     !self.driver_id.nil?
-  end
-
-  def self.with_driver(id)
-    self.where(status: ["accepted", "in transit"], driver_id: id)
   end
 end

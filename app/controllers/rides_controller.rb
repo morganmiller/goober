@@ -1,4 +1,5 @@
 class RidesController < ApplicationController
+  before_filter :authorize
   def new
     @ride = Ride.new
   end
@@ -27,8 +28,8 @@ class RidesController < ApplicationController
 private
 
   def ride_params
-    params.require(:ride).permit(:pickup_location,
-                                 :dropoff_location,
+    params.require(:ride).permit(:pickup_address,
+                                 :dropoff_address,
                                  :num_passengers)
   end
 end

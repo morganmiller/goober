@@ -3,12 +3,12 @@
   <%= form_for(@ride) do |f| %>
     <div class="form-group">
       <%= f.label :pickup_address %>
-      <%= f.text_area :pickup_address, placeholder: "address or cross-street", class: "form-control"  %>
+      <%= f.text_field :pickup_address, placeholder: "address or cross-street", class: "form-control"  %>
     </div>
 
     <div class="form-group">
       <%= f.label :dropoff_address %>
-      <%= f.text_area :dropoff_address, placeholder: "address or cross-street", class: "form-control"  %>
+      <%= f.text_field :dropoff_address, placeholder: "address or cross-street", class: "form-control"  %>
     </div>
 
     <div class="form-group">

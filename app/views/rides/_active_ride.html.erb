@@ -1,7 +1,6 @@
 Pickup: <%= ride.pickup_address %><br>
 Dropoff: <%= ride.dropoff_address %><br>
 Passengers: <%= ride.num_passengers %><br>
-Status: <%= ride.status.capitalize %>
 <%= react_component('RideStatus', initialRide: ride, initialTime: ride.send_most_recent_time) %>
 
 

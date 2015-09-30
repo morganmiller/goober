@@ -75,7 +75,5 @@ feature 'Driver seeking rides' do
 
     click_on("Complete Ride")
     expect(page).to_not have_content("Current Ride")
-    expect(page).to_not have_content("a place")
-    expect(page).to_not have_content("a different place")
   end
 end

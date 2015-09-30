@@ -13,6 +13,7 @@ class RideManager
       @ride.update_attributes(status: "in transit", pickup_time: Time.now)
     elsif @current_status == "in transit"
       @ride.update_attributes(status: "completed", dropoff_time: Time.now)
+      @ride.update_attributes(cost: @ride.calculate_cost)
     else
       false
     end

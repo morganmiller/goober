@@ -1,0 +1,26 @@
+<table class="table-bordered">
+<tr>
+  <th>Rider</th>
+  <th>Driver</th>
+  <th>Pickup Address</th>
+  <th>Dropoff Address</th>
+  <th>Requested</th>
+  <th>Accepted</th>
+  <th>Picked Up</th>
+  <th>Dropped Off</th>
+  <th>Cost</th>
+</tr>
+<% current_user.rides.completed_rides.each do |ride| %>
+  <tr>
+    <td><%= ride.rider.name %></td>
+    <td><%= ride.driver.name %></td>
+    <td><%= ride.pickup_address %></td>
+    <td><%= ride.dropoff_address %></td>
+    <td><%= time_tag ride.created_at, :format => '%B %d, %Y %l:%M %p' %></td>
+    <td><%= time_tag ride.accepted_time, :format => '%B %d, %Y %l:%M %p' %></td>
+    <td><%= time_tag ride.pickup_time, :format => '%B %d, %Y %l:%M %p' %></td>
+    <td><%= time_tag ride.dropoff_time, :format => '%B %d, %Y %l:%M %p' %></td>
+    <td>$10</td>
+  </tr>
+<% end %>
+</table>

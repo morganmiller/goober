@@ -1,7 +1,11 @@
 Welcome, <%= current_user.name %>
-
+<br>
 <% if current_user.rider? %>
   <%= render 'users/rider_dashboard' %>
 <% else %>
   <%= render 'users/driver_dashboard' %>
 <% end %>
+<br>
+<div id="completed-rides">
+  <%= render 'users/completed_rides' %>
+</div>

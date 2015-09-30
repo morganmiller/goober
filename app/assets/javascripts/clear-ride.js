@@ -4,6 +4,6 @@ $(document).ready(function(){
 
 function clearRide(){
   $(".active-ride").on('click', '.clear-ride-btn', function(e){
-    this.closest(".active-ride").remove()
+    this.closest(".active-ride").remove();
   })
 }

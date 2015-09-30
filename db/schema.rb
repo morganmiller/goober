@@ -24,14 +24,11 @@ ActiveRecord::Schema.define(version: 20150930034700) do
     t.datetime "accepted_time"
     t.datetime "pickup_time"
     t.datetime "dropoff_time"
-    t.integer  "user_id"
     t.integer  "driver_id"
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
     t.float    "cost"
   end
-
-  add_index "rides", ["user_id"], name: "index_rides_on_user_id", using: :btree
 
   create_table "user_rides", force: :cascade do |t|
     t.integer  "user_id"
@@ -56,7 +53,6 @@ ActiveRecord::Schema.define(version: 20150930034700) do
     t.integer  "car_capacity"
   end
 
-  add_foreign_key "rides", "users"
   add_foreign_key "user_rides", "rides"
   add_foreign_key "user_rides", "users"
 end

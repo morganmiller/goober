@@ -2,3 +2,7 @@ Pickup: <%= ride.pickup_address %><br>
 Dropoff: <%= ride.dropoff_address %><br>
 Passengers: <%= ride.num_passengers %><br>
 Status: <%= ride.status.capitalize %>
+
+<% if current_user.driver? %>
+  <%= button_to ride.status_change_button, ride_path(ride), method: "put" %>
+<% end %>

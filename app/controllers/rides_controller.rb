@@ -17,12 +17,11 @@ class RidesController < ApplicationController
 
   def update
     ride = Ride.find(params[:id])
-    new_status = params[:new_status]
-    if RideManager.new(ride, new_status, current_user).update_ride
+    if RideManager.new(ride, current_user).update_ride
       redirect_to "/"
     else
       flash[:errors] = "That ride cannot be updated at this time."
-      redirect(:back)
+      redirect_to(:back)
     end
   end
 private

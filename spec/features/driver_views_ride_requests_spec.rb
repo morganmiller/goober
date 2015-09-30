@@ -53,7 +53,7 @@ feature 'Driver seeking rides' do
     expect(page).to_not have_content("because too many passengers")
   end
 
-  scenario "can accept a ride" do
+  scenario "can accept, pick up and complete a ride" do
     rider.rides << active_ride
 
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(driver)
@@ -66,5 +66,16 @@ feature 'Driver seeking rides' do
     expect(page).to have_content("a place")
     expect(page).to have_content("a different place")
     expect(page).to have_content("Status: Accepted")
+
+    click_on("Pick up Rider")
+    expect(page).to have_content("Current Ride")
+    expect(page).to have_content("a place")
+    expect(page).to have_content("a different place")
+    expect(page).to have_content("Status: In transit")
+
+    click_on("Complete Ride")
+    expect(page).to_not have_content("Current Ride")
+    expect(page).to_not have_content("a place")
+    expect(page).to_not have_content("a different place")
   end
 end

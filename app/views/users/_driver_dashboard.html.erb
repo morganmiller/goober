@@ -7,6 +7,5 @@
   <h2>Active Ride Requests</h2>
   <% current_user.available_requests.each do |ride| %>
     <%= render partial: 'rides/active_ride', locals: {ride: ride} %>
-    <%= button_to "Accept", ride_path(new_status: "accepted", id: ride.id), method: "put" %>
   <% end %>
 <% end %>

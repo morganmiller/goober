@@ -1,5 +1,7 @@
 Pickup: <%= ride.pickup_address %><br>
 Dropoff: <%= ride.dropoff_address %><br>
+Distance: <%= ride.distance %> miles<br>
+Length of Trip: <%= ride.duration %> minutes<br>
 Passengers: <%= ride.num_passengers %><br>
 <%= react_component('RideStatus', initialRide: ride, initialTime: ride.send_most_recent_time) %>
 

@@ -1,4 +1,5 @@
 class Ride < ActiveRecord::Base
+  before_create :update_ride_info
   has_many :user_rides
   has_many :users, through: :user_rides
 
@@ -53,5 +54,11 @@ class Ride < ActiveRecord::Base
       when "completed"
         format_time(self.dropoff_time)
     end
+  end
+
+  def update_ride_info
+    directions = GoogleDirections.new(self.pickup_address, self.dropoff_address)
+    self.distance = directions.distance_in_miles
+    self.duration = directions.drive_time_in_minutes
   end
 end

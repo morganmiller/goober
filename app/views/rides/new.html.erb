@@ -1,0 +1,21 @@
+<div class="col-md-4 col-md-offset-4">
+  <h1>Request a Ride</h1>
+  <%= form_for(@ride) do |f| %>
+    <div class="form-group">
+      <%= f.label :pickup_address %>
+      <%= f.text_area :pickup_address, placeholder: "address or cross-street", class: "form-control"  %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :dropoff_address %>
+      <%= f.text_area :dropoff_address, placeholder: "address or cross-street", class: "form-control"  %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label "Number of passengers" %>
+      <%= f.text_field :num_passengers, placeholder: "as a number", class: "form-control" %>
+    </div>
+
+    <p class= "center"><%= f.submit "Submit", class:"tiny button radius" %></p>
+  <% end %>
+</div>

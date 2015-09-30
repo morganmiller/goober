@@ -1,1 +1,7 @@
 <h1>Rider Dashboard</h1>
+<% if current_user.has_active_rides? %>
+  <h2>Current Ride Request</h2>
+  <%= render partial: 'users/active_ride', locals: {ride: current_user.current_ride} %>
+<% else %>
+  <%= link_to "Request a Ride", new_ride_path %>
+<% end %>

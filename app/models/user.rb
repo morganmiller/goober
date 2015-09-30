@@ -1,5 +1,8 @@
 class User < ActiveRecord::Base
   has_secure_password
+  has_many :user_rides
+  has_many :rides, through: :user_rides
+
   enum role: %w(rider driver)
 
   validates :name,            presence: true
@@ -23,4 +26,23 @@ class User < ActiveRecord::Base
   def driver?
     self.role == "driver"
   end
+
+  #rider methods
+  def has_active_rides?
+    !self.current_ride.nil?
+  end
+
+  def current_ride
+    self.rides.where(status: ["active", "accepted", "in transit"]).first
+  end
+
+  #driver methods
+  def has_available_requests?
+    !self.available_requests.empty?
+  end
+
+  def available_requests
+    Ride.active_requests.where(num_passengers: (1..self.car_capacity).to_a)
+  end
+
 end

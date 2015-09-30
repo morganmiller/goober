@@ -65,13 +65,11 @@ feature 'Driver seeking rides' do
     expect(page).to have_content("Current Ride")
     expect(page).to have_content("a place")
     expect(page).to have_content("a different place")
-    expect(page).to have_content("Status: Accepted")
 
     click_on("Pick up Rider")
     expect(page).to have_content("Current Ride")
     expect(page).to have_content("a place")
     expect(page).to have_content("a different place")
-    expect(page).to have_content("Status: In transit")
 
     click_on("Complete Ride")
     expect(page).to_not have_content("Current Ride")

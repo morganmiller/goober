@@ -3,6 +3,9 @@ class Ride < ActiveRecord::Base
   has_many :users, through: :user_rides
 
   enum status: ["active", "accepted", "in transit", "completed"]
+  validates :pickup_address, presence: true
+  validates :dropoff_address, presence: true
+  validates :num_passengers, presence: true, numericality: true
 
   scope :active_requests, -> { where(status: "active") }
   scope :completed_rides, -> { where(status:3) }

@@ -36,12 +36,11 @@ feature 'Rider seeking ride' do
 
     expect(current_path).to eq(root_path)
     expect(page).to have_content("Current Ride Request")
-    expect(page).to have_content("Status: Active")
     expect(page).to have_content("this is pickup")
     expect(page).to have_content("this is dropoff")
   end
 
-  scenario "sees when a request ride has been accepted" do
+  scenario "sees driver info when a request ride has been accepted" do
     rider.rides << ride
 
     visit root_path
@@ -58,7 +57,6 @@ feature 'Rider seeking ride' do
     click_button "Login"
 
     expect(page).to have_content("Current Ride Request")
-    expect(page).to have_content("Status: Accepted")
     expect(page).to have_content("Driver: Horace")
     expect(page).to have_content("Car Make: Jeep")
     expect(page).to have_content("Car Model: Cherokee")

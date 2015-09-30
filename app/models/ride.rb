@@ -1,5 +1,5 @@
 class Ride < ActiveRecord::Base
-  before_create :update_ride_info
+  # before_create :update_ride_info
   has_many :user_rides
   has_many :users, through: :user_rides
 

@@ -27,12 +27,13 @@ class Ride < ActiveRecord::Base
   end
 
   def status_change_button
-    if self.status == "active"
-      "Accept"
-    elsif self.status == "accepted"
-      "Pick up Rider"
-    elsif self.status == "in transit"
-      "Complete Ride"
+    case self.status
+      when "active"
+        "Accept"
+      when "accepted"
+        "Pick up Rider"
+      when "in transit"
+        "Complete Ride"
     end
   end
 
@@ -42,14 +43,15 @@ class Ride < ActiveRecord::Base
   end
 
   def send_most_recent_time
-    if self.status == "active"
-      format_time(self.created_at)
-    elsif self.status == "accepted"
-      format_time(self.accepted_time)
-    elsif self.status == "in transit"
-      format_time(self.pickup_time)
-    elsif self.status == "completed"
-      format_time(self.dropoff_time)
+    case self.status
+      when "active"
+        format_time(self.created_at)
+      when "accepted"
+        format_time(self.accepted_time)
+      when "in transit"
+        format_time(self.pickup_time)
+      when "completed"
+        format_time(self.dropoff_time)
     end
   end
 end

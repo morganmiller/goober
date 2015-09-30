@@ -44,22 +44,24 @@ RSpec.describe User, type: :model do
 
   it "knows its role" do
     rider = User.create(name: "Morgan",
-      email: "mm@gmail.com",
-      phone_number: "7274216505",
-      password: "password",
-      password_confirmation: "password")
+                        email: "mm@gmail.com",
+                        phone_number: "7274216505",
+                        password: "password",
+                        password_confirmation: "password")
     expect(rider).to be_valid
 
     driver = User.create(name: "Horace",
-      email: "hw@gmail.com",
-      phone_number: "1234567890",
-      password: "password",
-      password_confirmation: "password",
-      role: 1)
+                        email: "hw@gmail.com",
+                        phone_number: "1234567890",
+                        password: "password",
+                        password_confirmation: "password",
+                        role: 1)
 
     expect(rider.rider?).to be_truthy
     expect(rider.driver?).to be_falsey
     expect(driver.driver?).to be_truthy
     expect(driver.rider?).to be_falsey
   end
+
+
 end

@@ -1,9 +1,12 @@
 <h1>Driver Dashboard</h1>
 
-<% if current_user.has_available_requests? %>
+<% if current_user.current_ride %>
+  <h2>Current Ride</h2>
+  <%= render partial: 'users/active_ride', locals: {ride: current_user.current_ride} %>
+<% elsif current_user.has_available_requests? %>
   <h2>Active Ride Requests</h2>
   <% current_user.available_requests.each do |ride| %>
     <%= render partial: 'users/active_ride', locals: {ride: ride} %>
-    <%= button_to "Accept", ride_path(ride) %>
+    <%= button_to "Accept", ride_path(new_status: "accepted", id: ride.id), method: "put" %>
   <% end %>
 <% end %>

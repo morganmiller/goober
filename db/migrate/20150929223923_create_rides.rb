@@ -8,6 +8,8 @@ class CreateRides < ActiveRecord::Migration
       t.datetime :accepted_time
       t.datetime :pickup_time
       t.datetime :dropoff_time
+      t.references :user, index: true, foreign_key: true
+      t.integer :driver_id
 
       t.timestamps null: false
     end

@@ -54,6 +54,17 @@ feature 'Driver seeking rides' do
   end
 
   scenario "can accept a ride" do
-    
+    rider.rides << active_ride
+
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(driver)
+    visit root_path
+    click_on("Accept")
+
+    expect(current_path).to eq(root_path)
+
+    expect(page).to have_content("Current Ride")
+    expect(page).to have_content("a place")
+    expect(page).to have_content("a different place")
+    expect(page).to have_content("Status: Accepted")
   end
 end

@@ -1,4 +1,7 @@
-<h1>Signup</h1>
-
-<%= link_to "Rider", signup_rider_path %>
-<%= link_to "Driver", signup_driver_path %>
+<div class="col-md-2 col-md-offset-5">
+  <h1>Signup</h1>
+  <div class="centered">
+    <%= button_to "Rider", signup_rider_path, method: "get", class: "btn btn-lg btn-success" %><br>
+    <%= button_to "Driver", signup_driver_path, method: "get", class: "btn btn-lg btn-info" %>
+  </div>
+</div>

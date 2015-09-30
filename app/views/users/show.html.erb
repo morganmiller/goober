@@ -5,7 +5,9 @@ Welcome, <%= current_user.name %>
 <% else %>
   <%= render 'users/driver_dashboard' %>
 <% end %>
-<br>
-<div id="completed-rides">
-  <%= render 'users/completed_rides' %>
-</div>
+<br><br>
+<% unless current_user.rides.completed_rides.empty? %>
+  <div id="completed-rides" class="col-lg-8 col-lg-offset-2">
+    <%= render 'users/completed_rides' %>
+  </div>
+<% end %>

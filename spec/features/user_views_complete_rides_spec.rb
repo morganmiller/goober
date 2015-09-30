@@ -25,7 +25,7 @@ feature 'Driver with completed rides' do
     num_passengers: 3)
   }
 
-  xscenario "can see them on dashboard" do
+  scenario "can see them on dashboard" do
     rider.rides << active_ride
 
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(driver)
@@ -34,7 +34,7 @@ feature 'Driver with completed rides' do
     click_on("Pick up Rider")
     click_on("Complete Ride")
 
-    within("div .completed-rides") do
+    within("#completed-rides") do
       expect(page).to have_content("destination number 9")
       expect(page).to have_content("not sure if that's a thing")
     end

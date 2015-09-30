@@ -1,13 +1,15 @@
-<h1>Rider Dashboard</h1>
+<div class="col-md-6 col-md-offset-3">
+  <h1>Rider Dashboard</h1>
 
-<% if current_user.has_active_rides? %>
-  <div class="active-ride">
-    <h2>Current Ride Request</h2>
-    <%= render partial: 'rides/active_ride', locals: {ride: current_user.current_ride} %>
-  </div>
-  <% if current_user.current_ride.has_driver? %>
-    <%= render partial: 'rides/driver_info', locals: {ride: current_user.current_ride} %>
+  <% if current_user.has_active_rides? %>
+    <div class="active-ride">
+      <h2>Current Ride Request</h2>
+      <%= render partial: 'rides/active_ride', locals: {ride: current_user.current_ride} %>
+    </div>
+    <% if current_user.current_ride.has_driver? %>
+      <%= render partial: 'rides/driver_info', locals: {ride: current_user.current_ride} %>
+    <% end %>
+  <% else %>
+    <%= link_to "Request a Ride", new_ride_path %>
   <% end %>
-<% else %>
-  <%= link_to "Request a Ride", new_ride_path %>
-<% end %>
+</div>
